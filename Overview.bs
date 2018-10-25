@@ -531,7 +531,9 @@ as follows:
     return an unresolved time value if {{fill}} is <code>none</code> or
     <code>backwards</code>, or the [=effective time range=] otherwise.
 
-5.  Return the result of evaluating the following expression:
+5.  If {{startScrollOffset}} is equal to {{endScrollOffset}}, return an unresolved time value.
+
+6.  Return the result of evaluating the following expression:
 
     <blockquote>
       <code>(<var>current scroll offset</var> - {{startScrollOffset}}) / ({{endScrollOffset}} - {{startScrollOffset}}) &times; [=effective time range=]</code>
