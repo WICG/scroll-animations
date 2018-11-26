@@ -351,7 +351,8 @@ dictionary ScrollTimelineOptions {
   FillMode fill = "none";
 };
 
-[Constructor(optional ScrollTimelineOptions options)]
+[Exposed=Window,
+ Constructor(optional ScrollTimelineOptions options)]
 interface ScrollTimeline : AnimationTimeline {
   readonly attribute Element scrollSource;
   readonly attribute ScrollDirection orientation;
