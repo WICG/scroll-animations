@@ -372,21 +372,21 @@ not by wall-clock time, but by the progress of scrolling in a [=scroll container
 :   <dfn constructor for=ScrollTimeline lt="ScrollTimeline(options)">ScrollTimeline(options)</dfn>
 ::  Creates a new {{ScrollTimeline}} object using the following procedure:
 
-    1. Let <var>timeline</var> be a new {{ScrollTimeline}} object.
+    1. Let |timeline| be a new {{ScrollTimeline}} object.
 
-    1. Let <var>source</var> be the result corresponding to the first matching condition from below.
+    1. Let |source| be the result corresponding to the first matching condition from below.
 
-        : If the <var>scrollSource</var> value of <var>options</var> is non-null,
-        :: Let <var>source</var> be <var>scrollSource</var>
+        : If the |scrollSource| value of |options| is non-null,
+        :: Let |source| be |scrollSource|
 
-        : Otherwise (<var>scrollSource</var> is null):
-        :: Let <var>source</var> be the {{scrollingElement}} of the {{Document}} <a lt="document associated with a window">associated</a> with the {{Window}} that is the <a>current global object</a>.
+        : Otherwise (|scrollSource| is null):
+        :: Let |source| be the {{scrollingElement}} of the {{Document}} <a lt="document associated with a window">associated</a> with the {{Window}} that is the <a>current global object</a>.
 
-        Note: <var>source</var> may still be null after this step, e.g. if the {{Document}} has no {{scrollingElement}}.
+        Note: |source| may still be null after this step, e.g. if the {{Document}} has no {{scrollingElement}}.
 
-    1. Set the {{ScrollTimeline/scrollSource}} of <var>timeline</var> to <var>source</var>.
+    1. Set the {{ScrollTimeline/scrollSource}} of |timeline| to |source|.
 
-    1. Assign the {{ScrollTimeline/orientation}}, {{ScrollTimeline/startScrollOffset}}, {{ScrollTimeline/endScrollOffset}}, {{ScrollTimeline/timeRange}}, and {{ScrollTimeline/fill}} properties of <var>timeline</var> to the corresponding value from <var>options</var>.
+    1. Assign the {{ScrollTimeline/orientation}}, {{ScrollTimeline/startScrollOffset}}, {{ScrollTimeline/endScrollOffset}}, {{ScrollTimeline/timeRange}}, and {{ScrollTimeline/fill}} properties of |timeline| to the corresponding value from |options|.
 
 </div>
 
