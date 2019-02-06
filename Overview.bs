@@ -520,30 +520,15 @@ as follows:
     in the direction specified by {{orientation}}.
 
 1.  If <var>current scroll offset</var> is less than {{startScrollOffset}}, return an unresolved
-    time value if {{fill}} is <code>none</code> or <code>forwards</code>, 
-    or 0 otherwise.
+    time value if {{fill}} is <code>none</code> or <code>forwards</code>, or 0 otherwise.
 
-1.  Let <var>end offset inclusive</var> be true if {{endScrollOffset}} is <code>"auto"</code> or
-    {{endScrollOffset}} is the end of {{scrollSource}}'s scroll range in {{orientation}}, false otherwise.
+1.  If <var>current scroll offset</var> is greater than or equal to {{endScrollOffset}},
+    return an unresolved time value if {{endScrollOffset}} is less than the maximum scroll offset
+    of {{scrollSource}} in {{orientation}} and {{fill}} is <code>none</code> or
+    <code>backwards</code>, or the [=effective time range=] otherwise.
 
-1.  If <var>current scroll offset</var> is greater than {{endScrollOffset}} or
-    <var>end offset inclusive</var> is false and <var>current scroll offset</var> is equal to
-    {{endScrollOffset}}:
-
-    <div class="switch">
-
-    : If {{fill}} is <code>none</code> or <code>backwards</code>,
-
-    :: Return an unresolved time value
-
-    : Otherwise,
-
-    :: Return the [=effective time range=].
-
-    </div>
-
-    Note: The <var>end offset inclusive</var> flag exists so that the common case of a
-    'whole scroller' ScrollTimeline does not become inactive at the max scroll position.
+    Note: Checking for {{endScrollOffset}} being the maximum scroll offset ensures that the common
+    case of a 'whole scroller' ScrollTimeline does not become inactive when you scroll to the end.
 
 1.  Return the result of evaluating the following expression:
 
