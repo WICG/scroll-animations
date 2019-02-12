@@ -522,10 +522,19 @@ as follows:
 1.  If <var>current scroll offset</var> is less than {{startScrollOffset}}, return an unresolved
     time value if {{fill}} is <code>none</code> or <code>forwards</code>, or 0 otherwise.
 
-1.  If <var>current scroll offset</var> is greater than or equal to {{endScrollOffset}},
-    return an unresolved time value if {{endScrollOffset}} is less than the maximum scroll offset
-    of {{scrollSource}} in {{orientation}} and {{fill}} is <code>none</code> or
-    <code>backwards</code>, or the [=effective time range=] otherwise.
+1.  If <var>current scroll offset</var> is greater than or equal to {{endScrollOffset}} then:
+    <div class="switch">
+
+    : If {{endScrollOffset}} is less than the maximum scroll offset of {{scrollSource}} in
+        {{orientation}} and {{fill}} is <code>none</code> or <code>backwards</code>,
+
+    :: return an unresolved time value.
+
+    : Otherwise,
+
+    :: return the [=effective time range=].
+
+    </div>
 
     Note: Checking for {{endScrollOffset}} being the maximum scroll offset ensures that the common
     case of a 'whole scroller' ScrollTimeline does not become inactive when you scroll to the end.
