@@ -1,5 +1,6 @@
  {
     "group":      ["80485"]
 ,   "contacts":   ["dontcallmedom"]
-,   "shortName":  "scroll-animations"
+,   "shortName":  "scroll-animations",
+    "repo-type":  "cg-report"
 }
